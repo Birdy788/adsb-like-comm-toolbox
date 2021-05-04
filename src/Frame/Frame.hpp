@@ -10,6 +10,7 @@
 #include <cassert>
 #include <iostream>
 #include <iomanip>
+#include <cstdint>
 
 #include "./MLType/MLType.hpp"
 #include "../Processing/CRC32b/CRC/CRC32b.hpp"
