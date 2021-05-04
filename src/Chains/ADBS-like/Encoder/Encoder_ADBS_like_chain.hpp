@@ -24,6 +24,7 @@ private:
     vector<uint8_t> vec_sep;
     vector<uint8_t> vec_bits;
     vector< int8_t> vec_up;
+    vector< int8_t> preamb;
     vector<uint8_t> vec_filtre;
   
 
