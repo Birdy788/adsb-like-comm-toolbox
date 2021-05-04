@@ -5,7 +5,7 @@ QPSK_chain_encoder::QPSK_chain_encoder(const uint32_t stream_length) :
     vec_sep   (  (stream_length/2      )),
     vec_bits  ( (stream_length/4)      ),
     vec_up    (   (stream_length*5)    ),
-    vec_preamb ((stream_length)); // a refaire
+    vec_preamb ((stream_length)), // a refaire
     vec_filtre ((stream_length))  // a refaire
 
 {
@@ -15,13 +15,13 @@ QPSK_chain_encoder::QPSK_chain_encoder(const uint32_t stream_length) :
 
 uint32_t QPSK_chain_encoder::ibuffer_size()
 {
-    return (vec_crc.size() - 4);
+    return (vec_sep.size()*2);
 }
 
 
 uint32_t QPSK_chain_encoder::obuffer_size()
 {
-    return vec_iq.size();
+    return vec_preamb.size();
 }
 
 
