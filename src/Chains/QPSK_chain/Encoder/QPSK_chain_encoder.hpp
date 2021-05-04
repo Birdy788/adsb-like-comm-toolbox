@@ -1,5 +1,5 @@
-#ifndef _Encoder_ADBS_like_chain_
-#define _Encoder_ADBS_like_chain_
+#ifndef QPSK_chain_encoder
+#define QPSK_chain_encoder
 
 #include <iostream>
 #include <cstdio>
@@ -7,7 +7,8 @@
 #include <cmath>
 #include <vector>
 
-//#include "Encoder_ADSB_chaine.hpp"
+#include "QPSK_chain_encoder.hpp"
+#include "../../../template/Encoder/Encoder_chain.hpp"
 
 //#include "../../../Frame/FECFrame.hpp"
 //#include "../../../Processing/CRC32b/InsertCRC32b/InsertCRC32b.hpp"
@@ -24,16 +25,16 @@ private:
     vector<uint8_t> vec_sep;
     vector<uint8_t> vec_bits;
     vector< int8_t> vec_up;
-    vector< int8_t> preamb;
     vector<uint8_t> vec_filtre;
+    vector< int8_t> preamb;
   
 
 
     Separation_trames     i_sep;
     Bits_symb             i_bits;
     Upsampling            i_up;
-    preamb                i_preamb;  
     filtre                i_filtre;
+    preamb                i_preamb;
   
 
 
