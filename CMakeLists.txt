@@ -24,7 +24,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lhackrf") # UHD
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lSoapySDR") # SoapySDR
 
 set(CMAKE_CXX_STANDARD 17)
-
+ 
 ########################################################################################################################
 
 project(receiver_adsb)
