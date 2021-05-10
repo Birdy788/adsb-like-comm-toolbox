@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     printf("\n");
 
 
-    UpSampling mod_up(2);
+    UpSampling mod_up(20);
     mod_up.execute( A, B );
 
     dump_payload( (uint8_t*)B.data(), B.size(), 128 );
