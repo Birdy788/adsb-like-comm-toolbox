@@ -13,7 +13,7 @@ QPSK_mod::~QPSK_mod()
 }
 
 
-void QPSK_mod::execute(std::vector<uint8_t>& ibuffer, std::vector<int8_t>& obuffer)
+/*void QPSK_mod::execute(std::vector<uint8_t>& ibuffer, std::vector<int8_t>& obuffer)
 {
 	// Le buffer de sortie doit etre 2x plus grand...
     if( obuffer.size() != (2 * ibuffer.size()) )
@@ -34,4 +34,25 @@ void QPSK_mod::execute(std::vector<uint8_t>& ibuffer, std::vector<int8_t>& obuff
         obuffer[2*i+0] = re[value];
         obuffer[2*i+1] = im[value];
     }
+}*/
+
+void execute(string bits,std::vector<int8_t>& symboles, int Ns, int n_b)
+{
+    
+    for (int k=0; k<Ns; k++)
+    {
+        if(bits[n_b*k] == 0 && bits[n_b+1] == 0){
+            complex <double> symboles[k] = 1/sqrt(2) + 1i * 1/sqrt(2);
+        }
+        else if (bits[n_b*k] == 0 && bits[n_b+1] == 1){
+            complex <double> symboles[k] = 1/sqrt(2) - 1i * 1/sqrt(2);
+        }
+        else if (bits[n_b*k] == 1 && bits[n_b+1] == 0){
+            complex <double> symboles[k] = -1/sqrt(2) + 1i * 1/sqrt(2);
+        }
+        else{
+            complex <double> symboles[k] = -1/sqrt(2) - 1i * 1/sqrt(2);
+        }
+    }
 }
+

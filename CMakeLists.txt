@@ -51,6 +51,7 @@ SET(SOURCE_FILES
         src/Frame/FrameTools.cpp
         src/Processing/Sampling/Up/UpSampling.cpp
         src/test_qpsk.cpp
+        src/Processing/QPSK/mod/QPSK_mod.cpp
         )
 
 add_executable(test_qpsk ${SOURCE_FILES})

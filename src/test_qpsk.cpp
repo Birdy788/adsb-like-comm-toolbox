@@ -12,7 +12,7 @@
 
 #include "./Processing/Sampling/Up/UpSampling.hpp"
 #include "./Processing/Sampling/Down/DownSampling.hpp"
-
+#include "./Processing/QPSK/mod/QPSK_mod.hpp"
 #include "./Frame/FrameTools.hpp"
 
 
@@ -23,22 +23,30 @@ int main(int argc, char *argv[])
 {
 
 #if 1
-    vector<int8_t> A(10);
+    int Nb = 16;
+    int Ns = Nb/2;
 
-    for(uint32_t i = 0; i < A.size(); i += 1)
-        A[i] = i;
+    string B = "0100110101001110";
 
-    vector<int8_t> B(20);
+    vector<int8_t> S(Ns);
 
-    dump_payload( (uint8_t*)A.data(), A.size(), 128 );
+    dump_payload( (uint8_t*)B.data(), B.size(), 128 );
     printf("\n");
     printf("\n");
+
+    QPSK_mod B_S(2);
+    B_S.execute(B,S, Ns, 2);
+    dump_payload( (uint8_t*)S.data(), S.size(), 128 );
+    printf("\n");
+    printf("\n");
+
+    vector<int8_t> C(20*Ns);
 
 
     UpSampling mod_up(20);
-    mod_up.execute( A, B );
+    mod_up.execute( S, C );
 
-    dump_payload( (uint8_t*)B.data(), B.size(), 128 );
+    dump_payload( (uint8_t*)C.data(), C.size(), 128 );
     printf("\n");
     printf("\n");
 

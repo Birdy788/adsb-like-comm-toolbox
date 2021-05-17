@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include <cmath>
 #include <vector>
+#include <complex>
+
 
 using namespace std;
 
@@ -18,7 +20,7 @@ public :
 
 	~QPSK_mod();
 
-    void execute(std::vector<uint8_t>& ibuffer, std::vector<int8_t>& obuffer);
+    void execute(string bits,std::vector<int8_t>& symboles, int Ns, int n_b);
 };
 
 #endif
